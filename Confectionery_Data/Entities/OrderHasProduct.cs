@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Confectionery_Data
+namespace Confectionery_EF
 {
     public partial class OrderHasProduct
     {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Confectionery_Data
+namespace Confectionery_EF
 {
     public partial class ConfectioneryDbContext : DbContext
     {

@@ -1,0 +1,9 @@
+C:\Users\NN\Source\Repos\Confectionery\Repositories\bin\Debug\netcoreapp3.1\Confectionery_Data.deps.json
+C:\Users\NN\Source\Repos\Confectionery\Repositories\bin\Debug\netcoreapp3.1\Confectionery_Data.dll
+C:\Users\NN\Source\Repos\Confectionery\Repositories\bin\Debug\netcoreapp3.1\Confectionery_Data.pdb
+C:\Users\NN\Source\Repos\Confectionery\Repositories\obj\Debug\netcoreapp3.1\Confectionery_Data.csprojAssemblyReference.cache
+C:\Users\NN\Source\Repos\Confectionery\Repositories\obj\Debug\netcoreapp3.1\Confectionery_Data.AssemblyInfoInputs.cache
+C:\Users\NN\Source\Repos\Confectionery\Repositories\obj\Debug\netcoreapp3.1\Confectionery_Data.AssemblyInfo.cs
+C:\Users\NN\Source\Repos\Confectionery\Repositories\obj\Debug\netcoreapp3.1\Confectionery_Data.csproj.CoreCompileInputs.cache
+C:\Users\NN\Source\Repos\Confectionery\Repositories\obj\Debug\netcoreapp3.1\Confectionery_Data.dll
+C:\Users\NN\Source\Repos\Confectionery\Repositories\obj\Debug\netcoreapp3.1\Confectionery_Data.pdb
