@@ -1,7 +1,7 @@
 ﻿using Confectionery.DAL.EF;
 using Confectionery.DAL.EF.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace Confectionery.DAL.Repositories

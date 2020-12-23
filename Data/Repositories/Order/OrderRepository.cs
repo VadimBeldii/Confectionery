@@ -36,10 +36,16 @@ namespace Confectionery.DAL.Repositories
             }
             return items;
         }
-        public void RemoveOrder(Order o)
+        public void RemoveOrder(Order order)
         {
+            //будет странно, если найдется несколько заказов, сделанных в одну и ту же секунду...наверное
+            var o = orders.FirstOrDefault(o => o.Time == order.Time);
             orders.Remove(o);
         }
 
+        public void AddOrder(Order order)
+        {
+            orders.Add(order);
+        }
     }
 }

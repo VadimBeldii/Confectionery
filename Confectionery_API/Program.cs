@@ -1,20 +1,22 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+using System.Threading.Tasks;
+
 
 namespace Confectionery.API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            await CreateHostBuilder(args).RunAsync();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        private static IWebHost CreateHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://*:56424")
+                .UseKestrel()
+                .UseStartup<Startup>()
+                .Build();
     }
 }

@@ -1,3 +1,6 @@
+using AutoMapper;
+using Confectionery.BLL.Services;
+using Confectionery.BLL.Mapping;
 using Confectionery.DAL;
 using Confectionery.DAL.EF;
 using Microsoft.AspNetCore.Builder;
@@ -6,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using System;
 
 namespace Confectionery.API
 {
@@ -23,10 +26,25 @@ namespace Confectionery.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddSession();
+
             services.AddDbContext<ConfectioneryDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Confectionery")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductService, ProductService>();
+
+            var config = new MapperConfiguration(cfg => {
+                cfg.AddProfile(new CategoryDTOMappingProfile());
+                cfg.AddProfile(new ProductDTOMappingProfile());
+                cfg.AddProfile(new OrderDTOMappingProfile());
+                cfg.AddProfile(new OrderItemDTOMappingProfile());
+            });
+
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,17 +55,15 @@ namespace Confectionery.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                {
-                    endpoints.MapControllerRoute(
-                        name: "default",
-                        pattern: "{controller=Test}/{action=Index}/{id?}");
-                }
+                endpoints.MapControllers();
             });
-        
+
         }
     }
 }

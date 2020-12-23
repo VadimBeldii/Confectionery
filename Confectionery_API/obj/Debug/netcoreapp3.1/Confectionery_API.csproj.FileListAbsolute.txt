@@ -6,8 +6,6 @@ C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Confectionery_API.runtimeconfig.dev.json
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Confectionery_API.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Confectionery_API.pdb
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\EntityFramework.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -29,11 +27,9 @@ C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.CodeDom.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
@@ -48,11 +44,6 @@ C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Data.dll
@@ -72,3 +63,9 @@ C:\Users\NN\source\repos\Confectionery\Confectionery_API\obj\Debug\netcoreapp3.1
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\obj\Debug\netcoreapp3.1\Confectionery_API.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\obj\Debug\netcoreapp3.1\Confectionery_API.pdb
 C:\Users\NN\source\repos\Confectionery\Confectionery_API\obj\Debug\netcoreapp3.1\Confectionery_API.genruntimeconfig.cache
+C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\DataTransferObjects.dll
+C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Services.dll
+C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\Services.pdb
+C:\Users\NN\source\repos\Confectionery\Confectionery_API\bin\Debug\netcoreapp3.1\DataTransferObjects.pdb

@@ -3,10 +3,10 @@ C:\Users\NN\source\repos\Confectionery\Confectionery\bin\Debug\netcoreapp3.1\EF.
 C:\Users\NN\source\repos\Confectionery\Confectionery\bin\Debug\netcoreapp3.1\EF.runtimeconfig.dev.json
 C:\Users\NN\source\repos\Confectionery\Confectionery\bin\Debug\netcoreapp3.1\EF.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery\bin\Debug\netcoreapp3.1\EF.pdb
-C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.csprojAssemblyReference.cache
 C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.AssemblyInfoInputs.cache
 C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.AssemblyInfo.cs
 C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.csproj.CoreCompileInputs.cache
 C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.dll
 C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.pdb
 C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.genruntimeconfig.cache
+C:\Users\NN\source\repos\Confectionery\Confectionery\obj\Debug\netcoreapp3.1\EF.csprojAssemblyReference.cache
