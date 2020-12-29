@@ -1390,7 +1390,8 @@
       },
       "Data/1.0.0": {
         "dependencies": {
-          "EF": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "5.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.1"
         },
         "runtime": {
           "Data.dll": {}
@@ -1402,7 +1403,7 @@
       "DataTransferObjects/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "EF": "1.0.0"
+          "Data": "1.0.0"
         },
         "runtime": {
           "DataTransferObjects.dll": {}
@@ -1413,8 +1414,7 @@
       },
       "EF/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.1",
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.1"
+          "Data": "1.0.0"
         },
         "runtime": {
           "EF.dll": {}
@@ -1426,8 +1426,8 @@
       "Services/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "Data": "1.0.0",
-          "DataTransferObjects": "1.0.0"
+          "DataTransferObjects": "1.0.0",
+          "EF": "1.0.0"
         },
         "runtime": {
           "Services.dll": {}

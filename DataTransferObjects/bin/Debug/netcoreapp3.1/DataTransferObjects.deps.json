@@ -9,7 +9,7 @@
       "DataTransferObjects/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "EF": "1.0.0"
+          "Data": "1.0.0"
         },
         "runtime": {
           "DataTransferObjects.dll": {}
@@ -191,13 +191,13 @@
         }
       },
       "System.Reflection.Emit/4.7.0": {},
-      "EF/1.0.0": {
+      "Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.1",
           "Microsoft.EntityFrameworkCore.Relational": "5.0.1"
         },
         "runtime": {
-          "EF.dll": {}
+          "Data.dll": {}
         }
       }
     }
@@ -341,7 +341,7 @@
       "path": "system.reflection.emit/4.7.0",
       "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
-    "EF/1.0.0": {
+    "Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

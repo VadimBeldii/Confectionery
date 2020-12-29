@@ -32,5 +32,5 @@ C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\Micr
 C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\EF.dll
-C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\EF.pdb
+C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\NN\source\repos\Confectionery\SellerClient\bin\Debug\netcoreapp3.1\Data.pdb

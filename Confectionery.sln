@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF", "Confectionery\EF.csproj", "{D2B1D787-D6D7-4CBA-B563-38B149D7AD94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Confectionery\Data.csproj", "{D2B1D787-D6D7-4CBA-B563-38B149D7AD94}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{FD94DDE7-EC89-498B-874F-D815494DD509}"
 EndProject
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confectionery_API", "Confec
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{E3283E27-DC96-4D36-893A-934C19DD16F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{8F3EB5F3-7C8E-4A21-8C07-BF017F092638}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF", "Data\EF.csproj", "{8F3EB5F3-7C8E-4A21-8C07-BF017F092638}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTransferObjects", "DataTransferObjects\DataTransferObjects.csproj", "{26E6E6BC-A2ED-4950-AA24-394FBA81C971}"
 EndProject
@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Servic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{8857E559-7841-4096-AD71-F955730ABDAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SellerClient", "SellerClient\SellerClient.csproj", "{97012675-3F01-4C54-9E57-1A5381D28E2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellerClient", "SellerClient\SellerClient.csproj", "{97012675-3F01-4C54-9E57-1A5381D28E2C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C73A6EC2-9ECD-4207-83A7-BD67AFC0B8BA} = {C73A6EC2-9ECD-4207-83A7-BD67AFC0B8BA}
 	EndProjectSection

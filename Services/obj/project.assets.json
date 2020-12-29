@@ -222,7 +222,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "EF": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "5.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.1"
         },
         "compile": {
           "bin/placeholder/Data.dll": {}
@@ -236,7 +237,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "EF": "1.0.0"
+          "Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DataTransferObjects.dll": {}
@@ -249,8 +250,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.1",
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.1"
+          "Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/EF.dll": {}
@@ -793,8 +793,8 @@
     },
     "Data/1.0.0": {
       "type": "project",
-      "path": "../Data/Data.csproj",
-      "msbuildProject": "../Data/Data.csproj"
+      "path": "../Confectionery/Data.csproj",
+      "msbuildProject": "../Confectionery/Data.csproj"
     },
     "DataTransferObjects/1.0.0": {
       "type": "project",
@@ -803,15 +803,15 @@
     },
     "EF/1.0.0": {
       "type": "project",
-      "path": "../Confectionery/EF.csproj",
-      "msbuildProject": "../Confectionery/EF.csproj"
+      "path": "../Data/EF.csproj",
+      "msbuildProject": "../Data/EF.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AutoMapper >= 10.1.1",
-      "Data >= 1.0.0",
-      "DataTransferObjects >= 1.0.0"
+      "DataTransferObjects >= 1.0.0",
+      "EF >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -844,8 +844,8 @@
             "C:\\Users\\NN\\source\\repos\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj": {
               "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj"
             },
-            "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\Data.csproj": {
-              "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\Data.csproj"
+            "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj": {
+              "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj"
             }
           }
         }

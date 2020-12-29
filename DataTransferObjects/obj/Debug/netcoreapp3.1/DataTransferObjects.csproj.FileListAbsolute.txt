@@ -7,6 +7,6 @@ C:\Users\NN\source\repos\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3
 C:\Users\NN\source\repos\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.csproj.CoreCompileInputs.cache
 C:\Users\NN\source\repos\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.dll
 C:\Users\NN\source\repos\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.pdb
-C:\Users\NN\source\repos\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\EF.dll
-C:\Users\NN\source\repos\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\EF.pdb
 C:\Users\NN\source\repos\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.csproj.CopyComplete
+C:\Users\NN\source\repos\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\NN\source\repos\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\Data.pdb

@@ -4,12 +4,12 @@
     "C:\\Users\\NN\\source\\repos\\Confectionery\\Services\\Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\EF.csproj": {
+    "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\EF.csproj",
-        "projectName": "EF",
-        "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\EF.csproj",
+        "projectUniqueName": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj",
         "packagesPath": "C:\\Users\\NN\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\obj\\",
         "projectStyle": "PackageReference",
@@ -104,8 +104,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\EF.csproj": {
-                "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\EF.csproj"
+              "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj": {
+                "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj"
               }
             }
           }
@@ -144,12 +144,12 @@
         }
       }
     },
-    "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\Data.csproj": {
+    "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\Data.csproj",
-        "projectName": "Data",
-        "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj",
+        "projectName": "EF",
+        "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj",
         "packagesPath": "C:\\Users\\NN\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\obj\\",
         "projectStyle": "PackageReference",
@@ -168,8 +168,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\EF.csproj": {
-                "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\EF.csproj"
+              "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj": {
+                "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj"
               }
             }
           }
@@ -229,8 +229,8 @@
               "C:\\Users\\NN\\source\\repos\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj": {
                 "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj"
               },
-              "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\Data.csproj"
+              "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj": {
+                "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj"
               }
             }
           }
