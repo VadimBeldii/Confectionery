@@ -14,5 +14,19 @@ namespace Confectionery.DAL.Repositories
         {
             return await context.Statistics.ToListAsync();
         }
+
+        public void Add(Statistics statistics)
+        {
+            var s = context.Statistics.Find(statistics);
+            if(s == default(Statistics))
+            {
+                context.Statistics.Add(statistics);
+            }
+            else
+            {
+                s.Purchased += statistics.Purchased;
+                s.PurchasedSeparately += statistics.PurchasedSeparately;
+            }
+        }
     }
 }

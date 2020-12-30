@@ -18,6 +18,17 @@ namespace Confectionery.BLL.Services
         }
         public void AddOrder(OrderDTO order)
         {
+            foreach(var item in order.OrderItems)
+            {
+                if (order.OrderItems.Count > 1)
+                {
+                    unitOfWork.Statistics.Add(new Statistics { Product = mapper.Map<Product>(item.Product), Purchased = item.count });
+                }
+                else
+                {
+                    unitOfWork.Statistics.Add(new Statistics { Product = mapper.Map<Product>(item.Product), PurchasedSeparately = item.count });
+                }
+            }
             unitOfWork.Orders.AddOrder(mapper.Map<Order>(order));
         }
 

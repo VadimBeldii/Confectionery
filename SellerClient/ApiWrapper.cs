@@ -10,7 +10,7 @@ namespace SellerClient
 {
     public static class ApiWrapper
     {
-        private static string host = "http://192.168.0.53:56424/api/seller";
+        private static string host = "http://192.168.1.103:56424/api/seller";
 
         public static ICollection<CategoryDTO> GetCategories()
         {

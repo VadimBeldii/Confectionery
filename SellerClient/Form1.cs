@@ -99,10 +99,14 @@ namespace SellerClient
         //причина существования этого костыля в том, что я не знаю как уговорить вижуалку подождать, пока сервер запускается
         private void Form1_Click(object sender, EventArgs e)
         {
+            CategoriesPanel.Controls.Clear();
             categories = ApiWrapper.GetCategories();
             foreach (var c in categories)
             {
                 var btn = new Button { Text = c.Name };
+                btn.Width = CategoriesPanel.Width;
+                btn.Height = 50;
+                btn.Top = CategoriesPanel.Controls.Count * 50;
                 btn.Click += (sender, e) =>
                 {
                     currentCategory = c;

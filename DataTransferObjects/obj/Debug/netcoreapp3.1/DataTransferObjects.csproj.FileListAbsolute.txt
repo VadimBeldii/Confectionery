@@ -10,3 +10,15 @@ C:\Users\NN\source\repos\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3
 C:\Users\NN\source\repos\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.csproj.CopyComplete
 C:\Users\NN\source\repos\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\Data.dll
 C:\Users\NN\source\repos\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\usver'\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\DataTransferObjects.deps.json
+C:\Users\usver'\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\DataTransferObjects.dll
+C:\Users\usver'\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\DataTransferObjects.pdb
+C:\Users\usver'\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\usver'\Confectionery\DataTransferObjects\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\usver'\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.csprojAssemblyReference.cache
+C:\Users\usver'\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.AssemblyInfoInputs.cache
+C:\Users\usver'\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.AssemblyInfo.cs
+C:\Users\usver'\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.csproj.CoreCompileInputs.cache
+C:\Users\usver'\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.csproj.CopyComplete
+C:\Users\usver'\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.dll
+C:\Users\usver'\Confectionery\DataTransferObjects\obj\Debug\netcoreapp3.1\DataTransferObjects.pdb

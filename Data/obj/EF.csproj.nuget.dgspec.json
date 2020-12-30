@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj": {}
+    "C:\\Users\\usver'\\Confectionery\\Data\\EF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj": {
+    "C:\\Users\\usver'\\Confectionery\\Confectionery\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\usver'\\Confectionery\\Confectionery\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj",
-        "packagesPath": "C:\\Users\\NN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\obj\\",
+        "projectPath": "C:\\Users\\usver'\\Confectionery\\Confectionery\\Data.csproj",
+        "packagesPath": "C:\\Users\\usver'\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usver'\\Confectionery\\Confectionery\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usver'\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,17 +80,17 @@
         }
       }
     },
-    "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj": {
+    "C:\\Users\\usver'\\Confectionery\\Data\\EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj",
+        "projectUniqueName": "C:\\Users\\usver'\\Confectionery\\Data\\EF.csproj",
         "projectName": "EF",
-        "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\EF.csproj",
-        "packagesPath": "C:\\Users\\NN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Data\\obj\\",
+        "projectPath": "C:\\Users\\usver'\\Confectionery\\Data\\EF.csproj",
+        "packagesPath": "C:\\Users\\usver'\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usver'\\Confectionery\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usver'\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,8 +104,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj": {
-                "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\Confectionery\\Data.csproj"
+              "C:\\Users\\usver'\\Confectionery\\Confectionery\\Data.csproj": {
+                "projectPath": "C:\\Users\\usver'\\Confectionery\\Confectionery\\Data.csproj"
               }
             }
           }

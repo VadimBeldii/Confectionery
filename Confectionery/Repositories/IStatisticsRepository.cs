@@ -6,5 +6,6 @@ namespace Confectionery.DAL.Repositories
     public interface IStatisticsRepository
     {
         Task<ICollection<Statistics>> GetStatistics();
+        void Add(Statistics s);
     }
 }

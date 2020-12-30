@@ -795,19 +795,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NN\\.nuget\\packages\\": {}
+    "C:\\Users\\usver'\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NN\\source\\repos\\Confectionery\\SellerClient\\SellerClient.csproj",
+      "projectUniqueName": "C:\\Users\\usver'\\Confectionery\\SellerClient\\SellerClient.csproj",
       "projectName": "SellerClient",
-      "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\SellerClient\\SellerClient.csproj",
-      "packagesPath": "C:\\Users\\NN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\SellerClient\\obj\\",
+      "projectPath": "C:\\Users\\usver'\\Confectionery\\SellerClient\\SellerClient.csproj",
+      "packagesPath": "C:\\Users\\usver'\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\usver'\\Confectionery\\SellerClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\NN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\usver'\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -821,8 +821,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\NN\\source\\repos\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj": {
-              "projectPath": "C:\\Users\\NN\\source\\repos\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj"
+            "C:\\Users\\usver'\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj": {
+              "projectPath": "C:\\Users\\usver'\\Confectionery\\DataTransferObjects\\DataTransferObjects.csproj"
             }
           }
         }

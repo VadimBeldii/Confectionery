@@ -19,7 +19,10 @@ namespace Confectionery.BLL.Services
 
         public ICollection<CategoryDTO> GetCategories()
         {
-            return mapper.Map<ICollection<CategoryDTO>>(unitOfWork.Products.GetCategories().Result);
+            //DEBUG
+            var r = unitOfWork.Products.GetCategories().Result;
+            var m = mapper.Map<ICollection<CategoryDTO>>(r);
+            return m;
         }
 
         public ICollection<ProductDTO> GetProducts()
