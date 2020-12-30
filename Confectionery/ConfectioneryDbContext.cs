@@ -8,6 +8,7 @@ namespace Confectionery.DAL.EF
         public DbSet<Entities.Category> Categories { get; set; }
         public DbSet<Entities.Order> Orders { get; set; }
         public DbSet<Entities.OrderItem> OrderItems { get; set; }
+        public DbSet<Entities.Statistics> Statistics { get; set; }
 
         public ConfectioneryDbContext(DbContextOptions<ConfectioneryDbContext> dbContextOptions) : base(dbContextOptions)
         {
@@ -24,6 +25,8 @@ namespace Confectionery.DAL.EF
             modelBuilder.Entity<Entities.Category>()
                 .HasMany(c => c.Products)
                 .WithOne(p => p.Category);
+            modelBuilder.Entity<Entities.Statistics>()
+                .HasOne(s => s.Product);
         }
 
     }

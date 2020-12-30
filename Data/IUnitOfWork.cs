@@ -7,6 +7,7 @@ namespace Confectionery.DAL
     {
         IOrderRepository Orders { get; }
         IProductsRepository Products { get; }
+        IStatisticsRepository Statistics { get; }
 
         Task SaveAsync();
     }

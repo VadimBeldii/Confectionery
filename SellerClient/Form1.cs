@@ -22,17 +22,24 @@ namespace SellerClient
         {
             var item = order.OrderItems.SingleOrDefault(o => o.Product == currentCategory.Products[ProductsLV.SelectedIndices[0]]);
 
+            uint count;
             if (item == default(OrderItemDTO))
             {
-                order.OrderItems.Add(new OrderItemDTO
+                if (uint.TryParse(CountTB.Text, out count))
                 {
-                    count = (int)uint.Parse(CountTB.Text),
-                    Product = currentCategory.Products[ProductsLV.SelectedIndices[0]]
-                });
+                    order.OrderItems.Add(new OrderItemDTO
+                    {
+                        count = (int)count,
+                        Product = currentCategory.Products[ProductsLV.SelectedIndices[0]]
+                    });
+                }
             }
             else
             {
-                item.count += (int)uint.Parse(CountTB.Text);
+                if (uint.TryParse(CountTB.Text, out count))
+                {
+                    item.count += (int)count;
+                }
             }
             CountTB.Text = "1";
         }
