@@ -21,7 +21,7 @@ namespace SellerClient
 
         private void AddProductBtn_Click(object sender, EventArgs e)
         {
-            var item = order.OrderItems.SingleOrDefault(o => o.Product == currentCategory.Products[ProductsLV.SelectedIndices[0]]);
+            var item = order.OrderItems.SingleOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id);
 
             uint count;
             if (item == default(OrderItemDTO))
@@ -30,8 +30,8 @@ namespace SellerClient
                 {
                     order.OrderItems.Add(new OrderItemDTO
                     {
-                        count = (int)count,
-                        Product = currentCategory.Products[ProductsLV.SelectedIndices[0]]
+                        Count = (int)count,
+                        ProductId = currentCategory.Products[ProductsLV.SelectedIndices[0]].Id
                     });
                 }
             }
@@ -39,7 +39,7 @@ namespace SellerClient
             {
                 if (uint.TryParse(CountTB.Text, out count))
                 {
-                    item.count += (int)count;
+                    item.Count += (int)count;
                 }
             }
             CountTB.Text = "1";
@@ -48,22 +48,32 @@ namespace SellerClient
         private void RemoveProduct_Click(object sender, EventArgs e)
         {
             order.OrderItems.Remove(
-                order.OrderItems.FirstOrDefault(o => o.Product == currentCategory.Products[ProductsLV.SelectedIndices[0]]));
+                order.OrderItems.FirstOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id));
         }
 
         private void SendOrderButton_Click(object sender, EventArgs e)
         {
+            if (order.OrderItems == null || order.OrderItems.Count == 0)
+            {
+                return;
+            }
             order.Time = DateTime.Now;
             ApiWrapper.SendOrder(order);
+            order = new OrderDTO();
+            order.OrderItems = new List<OrderItemDTO>();
         }
 
         private void ShowOrderButton_Click(object sender, EventArgs e)
         {
             var sb = new StringBuilder();
-            foreach (var i in order.OrderItems)
-                sb.Append($"{i.Product.Name} ({i.count} шт.) \n");
+            
+            if (order.OrderItems != null || order.OrderItems.Count != 0)
+            {
+                foreach (var i in order.OrderItems)
+                    sb.Append($"{currentCategory.Products.First(p => p.Id == i.ProductId).Name} ({i.Count} шт.) \n");
+            }
 
-            Form prompt = new Form()
+            var prompt = new Form()
             {
                 Width = 500,
                 Height = 500,
@@ -71,8 +81,15 @@ namespace SellerClient
                 Text = "Текущий заказ: ",
                 StartPosition = FormStartPosition.CenterScreen
             };
-            Label textLabel = new Label() { Left = 50, Top = 20, Text = sb.ToString() };
-            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 400, DialogResult = DialogResult.OK };
+            var textLabel = new Label()
+            {
+                Left = 50,
+                Top = 20,
+                Width = 400,
+                Height = 300,
+                Text = sb.ToString()
+            };
+            var confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 400, DialogResult = DialogResult.OK };
             confirmation.Click += (sender, e) => { prompt.Close(); };
             prompt.Controls.Add(confirmation);
             prompt.Controls.Add(textLabel);
@@ -84,14 +101,13 @@ namespace SellerClient
         private void CategoryChanged()
         {
             ProductsLV.Items.Clear();
+            ProductsLV.Columns.Clear();
             ProductsLV.Columns.Add("Name", "Название");
             ProductsLV.Columns.Add("Price", "Цена");
+            ProductsLV.Columns.Add("Description", "Описание");
             foreach(var p in currentCategory.Products)
             {
-                var item = new ListViewItem(new[] { p.Name, p.Price.ToString() })
-                {
-                    ToolTipText = p.Description
-                };
+                var item = new ListViewItem(new[] { p.Name, p.Price.ToString(), p.Description });
                 ProductsLV.Items.Add(item);
             }
         }

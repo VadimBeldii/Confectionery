@@ -22,19 +22,21 @@ namespace Confectionery.BLL.Services
             {
                 if (order.OrderItems.Count > 1)
                 {
-                    unitOfWork.Statistics.Add(new Statistics { Product = mapper.Map<Product>(item.Product), Purchased = item.count });
+                    unitOfWork.Statistics.Add(new Statistics { ProductId = item.ProductId, Purchased = item.Count });
                 }
                 else
                 {
-                    unitOfWork.Statistics.Add(new Statistics { Product = mapper.Map<Product>(item.Product), PurchasedSeparately = item.count });
+                    unitOfWork.Statistics.Add(new Statistics { ProductId = item.ProductId, PurchasedSeparately = item.Count });
                 }
             }
-            unitOfWork.Orders.AddOrder(mapper.Map<Order>(order));
+            unitOfWork.Orders.AddOrder(mapper.Map<Order>(order), mapper.Map<ICollection<OrderItem>>(order.OrderItems));
+            unitOfWork.Save();
         }
 
         public void Execute(OrderDTO order)
         {
             unitOfWork.Orders.RemoveOrder(mapper.Map<Order>(order));
+            unitOfWork.Save();
         }
 
         public ICollection<OrderItemDTO> GetOrderedProducts()

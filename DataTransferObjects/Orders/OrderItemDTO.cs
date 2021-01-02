@@ -2,7 +2,8 @@
 {
     public class OrderItemDTO
     {
-        public int count { get; set; }
-        public ProductDTO Product { get; set; }
+        public int Id { get; set; }
+        public int Count { get; set; }
+        public int ProductId { get; set; }
     }
 }

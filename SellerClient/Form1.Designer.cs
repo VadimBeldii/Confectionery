@@ -100,6 +100,7 @@ namespace SellerClient
             this.ProductsLV.Size = new System.Drawing.Size(345, 426);
             this.ProductsLV.TabIndex = 8;
             this.ProductsLV.UseCompatibleStateImageBehavior = false;
+            this.ProductsLV.View = System.Windows.Forms.View.Details;
             // 
             // Form1
             // 

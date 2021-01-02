@@ -2,6 +2,7 @@
 using Confectionery.DAL.EF.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Confectionery.DAL.Repositories
@@ -28,6 +29,11 @@ namespace Confectionery.DAL.Repositories
         public async Task<ICollection<Product>> GetProducts()
         {
             return await context.Products.ToListAsync();
+        }
+
+        public async Task<ICollection<Product>> GetProducts(Category category)
+        {
+            return await context.Products.Where(p => p.CategoryId == category.Id).ToListAsync();
         }
     }
 }

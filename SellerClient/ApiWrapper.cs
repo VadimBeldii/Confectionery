@@ -10,7 +10,7 @@ namespace SellerClient
 {
     public static class ApiWrapper
     {
-        private static string host = "http://192.168.1.103:56424/api/seller";
+        private static string host = "http://192.168.0.18:56424/api/seller";
 
         public static ICollection<CategoryDTO> GetCategories()
         {
@@ -31,7 +31,7 @@ namespace SellerClient
 
         public static void SendOrder(OrderDTO order)
         {
-            var request = WebRequest.Create($"{host}/order") as HttpWebRequest;
+            var request = WebRequest.Create($"{host}/addorder") as HttpWebRequest;
             request.CookieContainer = new CookieContainer();
             request.Method = "POST";
             request.ContentType = "application/json";
@@ -40,6 +40,8 @@ namespace SellerClient
                 var json = JsonSerializer.Serialize(order);
                 streamWriter.Write(json);
             }
+
+            request.GetResponse();
         }
     }
 }

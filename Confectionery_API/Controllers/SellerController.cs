@@ -1,9 +1,5 @@
-﻿using Confectionery.DAL;
+﻿using Confectionery.BLL.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Confectionery.BLL.Services;
 using System.Text.Json;
 
@@ -27,6 +23,13 @@ namespace Confectionery_API.Controllers
         public IActionResult GetCategories()
         {
             return Ok(JsonSerializer.Serialize(productService.GetCategories()));
+        }        
+
+        [HttpPost("addorder")]
+        public IActionResult AddOrder([FromBody]OrderDTO order)
+        {
+            orderService.AddOrder(order);
+            return Ok();
         }
     }
 }

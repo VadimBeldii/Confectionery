@@ -6,7 +6,7 @@ namespace Confectionery.BLL.Services
 {
     public interface IProductService
     {
-        public ICollection<DTOs.ProductDTO> GetProducts();
         public ICollection<DTOs.CategoryDTO> GetCategories();
+        public ICollection<DTOs.ProductDTO> GetProducts();
     }
 }

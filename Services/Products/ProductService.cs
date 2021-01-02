@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using Confectionery.BLL.DTOs;
-using System;
+using Confectionery.DAL.EF.Entities;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Confectionery.BLL.Services
 {
@@ -19,10 +18,13 @@ namespace Confectionery.BLL.Services
 
         public ICollection<CategoryDTO> GetCategories()
         {
-            //DEBUG
-            var r = unitOfWork.Products.GetCategories().Result;
-            var m = mapper.Map<ICollection<CategoryDTO>>(r);
-            return m;
+            var result =  mapper.Map<ICollection<CategoryDTO>>(unitOfWork.Products.GetCategories().Result);
+            foreach (var c in result)
+            {
+                var products = unitOfWork.Products.GetProducts(mapper.Map<Category>(c)).Result;
+                c.Products = mapper.Map<IList<ProductDTO>>(products);
+            }
+            return result;
         }
 
         public ICollection<ProductDTO> GetProducts()

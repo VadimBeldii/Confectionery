@@ -9,6 +9,6 @@ namespace Confectionery.DAL
         IProductsRepository Products { get; }
         IStatisticsRepository Statistics { get; }
 
-        Task SaveAsync();
+        void Save();
     }
 }

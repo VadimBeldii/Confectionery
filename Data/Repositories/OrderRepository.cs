@@ -21,16 +21,16 @@ namespace Confectionery.DAL.Repositories
 
         public async Task<ICollection<Order>> GetOrders()
         {
-            return await orders.ToListAsync<Order>();
+            return await orders.ToListAsync();
         }
         public ICollection<OrderItem> GetOrderedProducts()
         {
             var items = new List<OrderItem>();
-            foreach(var g in orderItems.GroupBy(o=>o.Product))
+            foreach(var g in orderItems.GroupBy(o=>o.ProductId))
             {
                 items.Add(new OrderItem
                 {
-                    Product = g.Key,
+                    ProductId = g.Key,
                     Count = g.Sum(o => o.Count)
                 });
             }
@@ -43,9 +43,21 @@ namespace Confectionery.DAL.Repositories
             orders.Remove(o);
         }
 
-        public void AddOrder(Order order)
+        public void AddOrder(Order order, ICollection<OrderItem> items)
         {
             orders.Add(order);
+            var orderId = orders.Select(o => o.Id).Max();
+            // var productId = 
+            foreach (var item in items)
+            {
+                item.OrderId = orderId;
+                orderItems.Add(item);
+            }
+        }
+
+        public async Task<ICollection<OrderItem>> GetItems(Order order)
+        {
+            return await orderItems.Where(o => o.OrderId == order.Id).ToListAsync();
         }
     }
 }

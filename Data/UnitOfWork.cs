@@ -16,9 +16,9 @@ namespace Confectionery.DAL
         public IProductsRepository Products => products ??= new ProductsRepository(context);
         public IStatisticsRepository Statistics => statistics ??= new StatisticsRepository(context);
 
-        public async Task SaveAsync()
+        public void Save()
         {
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

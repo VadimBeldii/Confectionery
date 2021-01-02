@@ -7,6 +7,5 @@ namespace Confectionery.DAL.EF.Entities
     {
         public int Id { get; set; }
         public DateTime Time { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

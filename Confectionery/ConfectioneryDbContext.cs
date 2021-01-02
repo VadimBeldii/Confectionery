@@ -18,16 +18,16 @@ namespace Confectionery.DAL.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Entities.Order>()
-                .HasMany(o => o.OrderItems)
-                .WithOne(o=>o.Order);
+                .Property(o => o.Id).ValueGeneratedOnAdd();           
             modelBuilder.Entity<Entities.OrderItem>()
-                .HasOne(o => o.Product);
-            modelBuilder.Entity<Entities.Category>()
-                .HasMany(c => c.Products)
-                .WithOne(p => p.Category);
+                .Property(o => o.Id).ValueGeneratedOnAdd();            
             modelBuilder.Entity<Entities.Statistics>()
-                .HasOne(s => s.Product);
-        }
+                .Property(s => s.Id).ValueGeneratedOnAdd();
 
+            modelBuilder.Entity<Entities.Order>()
+                .HasMany(typeof(Entities.OrderItem))
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }
