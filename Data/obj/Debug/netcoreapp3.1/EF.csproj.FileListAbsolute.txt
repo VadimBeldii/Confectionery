@@ -22,3 +22,6 @@ C:\Users\usver'\Confectionery\Data\obj\Debug\netcoreapp3.1\EF.csproj.CoreCompile
 C:\Users\usver'\Confectionery\Data\obj\Debug\netcoreapp3.1\EF.csproj.CopyComplete
 C:\Users\usver'\Confectionery\Data\obj\Debug\netcoreapp3.1\EF.dll
 C:\Users\usver'\Confectionery\Data\obj\Debug\netcoreapp3.1\EF.pdb
+C:\Users\usver'\Confectionery\Data\bin\Debug\netcoreapp3.1\EF.runtimeconfig.json
+C:\Users\usver'\Confectionery\Data\bin\Debug\netcoreapp3.1\EF.runtimeconfig.dev.json
+C:\Users\usver'\Confectionery\Data\obj\Debug\netcoreapp3.1\EF.genruntimeconfig.cache

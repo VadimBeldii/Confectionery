@@ -12,11 +12,13 @@ namespace Confectionery.DAL.Repositories
     {
         private readonly DbSet<Order> orders;
         private readonly DbSet<OrderItem> orderItems;
+        private readonly DbContext context;
 
         public OrderRepository(ConfectioneryDbContext context)
         {
             orders = context.Orders;
             orderItems = context.OrderItems;
+            this.context = context;
         }
 
         public async Task<ICollection<Order>> GetOrders()
@@ -46,8 +48,8 @@ namespace Confectionery.DAL.Repositories
         public void AddOrder(Order order, ICollection<OrderItem> items)
         {
             orders.Add(order);
+            context.SaveChanges();
             var orderId = orders.Select(o => o.Id).Max();
-            // var productId = 
             foreach (var item in items)
             {
                 item.OrderId = orderId;
