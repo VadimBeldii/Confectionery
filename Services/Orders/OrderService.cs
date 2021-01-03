@@ -16,9 +16,10 @@ namespace Confectionery.BLL.Services
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
-        public void AddOrder(OrderDTO order)
+
+        private void SaveStatistics(OrderDTO order)
         {
-            foreach(var item in order.OrderItems)
+            foreach (var item in order.OrderItems)
             {
                 if (order.OrderItems.Count > 1)
                 {
@@ -29,8 +30,20 @@ namespace Confectionery.BLL.Services
                     unitOfWork.Statistics.Add(new Statistics { ProductId = item.ProductId, PurchasedSeparately = item.Count });
                 }
             }
+        }
+        public bool AddOrder(OrderDTO order)
+        { 
+            foreach(var item in order.OrderItems)
+            {
+                if (unitOfWork.Products.GetProduct(item.Id).Count < item.Count)
+                {
+                    return false;
+                }
+            }
             unitOfWork.Orders.AddOrder(mapper.Map<Order>(order), mapper.Map<ICollection<OrderItem>>(order.OrderItems));
+            SaveStatistics(order);
             unitOfWork.Save();
+            return true;
         }
 
         public void Execute(OrderDTO order)

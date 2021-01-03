@@ -6,6 +6,7 @@ namespace Confectionery.DAL.Repositories
 {
     public interface IProductsRepository
     {
+        Product GetProduct(int id);
         Task<ICollection<Product>> GetProducts();
         Task<ICollection<Product>> GetProducts(Category category);
         void DeleteProduct(Product p);

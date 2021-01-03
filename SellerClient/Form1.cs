@@ -22,25 +22,28 @@ namespace SellerClient
         private void AddProductBtn_Click(object sender, EventArgs e)
         {
             var item = order.OrderItems.SingleOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id);
-
+            
             uint count;
-            if (item == default(OrderItemDTO))
+
+            if (uint.TryParse(CountTB.Text, out count)
+                && count <= currentCategory.Products[ProductsLV.SelectedIndices[0]].Count)
             {
-                if (uint.TryParse(CountTB.Text, out count))
-                {
+                if (item == default(OrderItemDTO))
+                { 
                     order.OrderItems.Add(new OrderItemDTO
                     {
                         Count = (int)count,
                         ProductId = currentCategory.Products[ProductsLV.SelectedIndices[0]].Id
                     });
                 }
-            }
-            else
-            {
-                if (uint.TryParse(CountTB.Text, out count))
+                else
                 {
                     item.Count += (int)count;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Unable to order");
             }
             CountTB.Text = "1";
         }
@@ -105,9 +108,10 @@ namespace SellerClient
             ProductsLV.Columns.Add("Name", "Название");
             ProductsLV.Columns.Add("Price", "Цена");
             ProductsLV.Columns.Add("Description", "Описание");
+            ProductsLV.Columns.Add("Count", "Остаток на складе");
             foreach(var p in currentCategory.Products)
             {
-                var item = new ListViewItem(new[] { p.Name, p.Price.ToString(), p.Description });
+                var item = new ListViewItem(new[] { p.Name, p.Price.ToString(), p.Description, p.Count.ToString() });
                 ProductsLV.Items.Add(item);
             }
         }

@@ -8,7 +8,7 @@ namespace Confectionery.BLL.Services
     {
         ICollection<DTOs.OrderDTO> GetOrders();
         ICollection<DTOs.OrderItemDTO> GetOrderedProducts(); 
-        void AddOrder(DTOs.OrderDTO order);
+        bool AddOrder(DTOs.OrderDTO order);
         void Execute(DTOs.OrderDTO order);
     }
 }

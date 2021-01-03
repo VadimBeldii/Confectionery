@@ -26,6 +26,11 @@ namespace Confectionery.DAL.Repositories
             return await context.Categories.ToListAsync();
         }
 
+        public Product GetProduct(int id)
+        {
+            return context.Products.FirstOrDefault(p => p.Id == id);
+        }
+
         public async Task<ICollection<Product>> GetProducts()
         {
             return await context.Products.ToListAsync();
