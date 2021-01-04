@@ -33,15 +33,23 @@ namespace Confectionery.BLL.Services
         }
         public bool AddOrder(OrderDTO order)
         { 
+            //проверка на корректность
             foreach(var item in order.OrderItems)
             {
-                if (unitOfWork.Products.GetProduct(item.Id).Count < item.Count)
+                var product = unitOfWork.Products.GetProduct(item.ProductId);
+                if (product == null || item.Count > product.Count)
                 {
                     return false;
                 }
             }
-            unitOfWork.Orders.AddOrder(mapper.Map<Order>(order), mapper.Map<ICollection<OrderItem>>(order.OrderItems));
             SaveStatistics(order);
+            //уменьшаем количество
+            foreach(var item in order.OrderItems)
+            {
+                var product = unitOfWork.Products.GetProduct(item.ProductId);
+                unitOfWork.Products.UpdateProduct(item.ProductId, new[] { KeyValuePair.Create<string, object>("Count", product.Count - item.Count) });
+            }
+            unitOfWork.Orders.AddOrder(mapper.Map<Order>(order), mapper.Map<ICollection<OrderItem>>(order.OrderItems));
             unitOfWork.Save();
             return true;
         }

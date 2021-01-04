@@ -28,7 +28,22 @@ namespace SellerClient
 
             return JsonSerializer.Deserialize<ICollection<CategoryDTO>>(result);
         }
+        public static ICollection<ProductDTO> GetProducts()
+        {
+            var request = WebRequest.Create($"{host}/getproducts") as HttpWebRequest;
+            request.Method = "GET";
+            request.ContentType = "application/json";
 
+            var response = request.GetResponse() as HttpWebResponse;
+
+            if (response?.StatusCode != HttpStatusCode.OK)
+                return null;
+
+            var streamReader = new StreamReader(response.GetResponseStream());
+            var result = streamReader.ReadToEnd();
+
+            return JsonSerializer.Deserialize<ICollection<ProductDTO>>(result);
+        }
         public static void SendOrder(OrderDTO order)
         {
             var request = WebRequest.Create($"{host}/addorder") as HttpWebRequest;
@@ -43,5 +58,6 @@ namespace SellerClient
 
             request.GetResponse();
         }
+
     }
 }

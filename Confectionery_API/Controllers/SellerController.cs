@@ -23,7 +23,13 @@ namespace Confectionery_API.Controllers
         public IActionResult GetCategories()
         {
             return Ok(JsonSerializer.Serialize(productService.GetCategories()));
-        }        
+        }
+
+        [HttpGet("getproducts")]
+        public IActionResult GetProducts()
+        {
+            return Ok(JsonSerializer.Serialize(productService.GetProducts()));
+        }
 
         [HttpPost("addorder")]
         public IActionResult AddOrder([FromBody]OrderDTO order)

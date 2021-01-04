@@ -9,6 +9,7 @@ namespace Confectionery.DAL.Repositories
         Product GetProduct(int id);
         Task<ICollection<Product>> GetProducts();
         Task<ICollection<Product>> GetProducts(Category category);
+        public void UpdateProduct(int id, KeyValuePair<string, object>[] properties);
         void DeleteProduct(Product p);
         Task<ICollection<Category>> GetCategories();
         void DeleteCategory(Category c);

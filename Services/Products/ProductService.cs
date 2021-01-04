@@ -29,7 +29,7 @@ namespace Confectionery.BLL.Services
 
         public ICollection<ProductDTO> GetProducts()
         {
-            return mapper.Map<ICollection<ProductDTO>>(unitOfWork.Products.GetProducts());
+            return mapper.Map<ICollection<ProductDTO>>(unitOfWork.Products.GetProducts().Result);
         }
     }
 }

@@ -17,8 +17,10 @@ namespace SellerClient
 
         private ICollection<CategoryDTO> categories;
         private CategoryDTO currentCategory;
+        private ICollection<ProductDTO> products;
         private OrderDTO order = new OrderDTO { OrderItems = new List<OrderItemDTO>() };
 
+        #region create order
         private void AddProductBtn_Click(object sender, EventArgs e)
         {
             var item = order.OrderItems.SingleOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id);
@@ -40,6 +42,7 @@ namespace SellerClient
                 {
                     item.Count += (int)count;
                 }
+                currentCategory.Products[ProductsLV.SelectedIndices[0]].Count -= (int)count;
             }
             else
             {
@@ -47,13 +50,11 @@ namespace SellerClient
             }
             CountTB.Text = "1";
         }
-
         private void RemoveProduct_Click(object sender, EventArgs e)
         {
             order.OrderItems.Remove(
                 order.OrderItems.FirstOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id));
         }
-
         private void SendOrderButton_Click(object sender, EventArgs e)
         {
             if (order.OrderItems == null || order.OrderItems.Count == 0)
@@ -64,16 +65,24 @@ namespace SellerClient
             ApiWrapper.SendOrder(order);
             order = new OrderDTO();
             order.OrderItems = new List<OrderItemDTO>();
-        }
 
+            currentCategory = null;
+            UpdateForm();
+            UpdateProductList();
+        }
         private void ShowOrderButton_Click(object sender, EventArgs e)
         {
             var sb = new StringBuilder();
-            
+            decimal price = 0;
+
             if (order.OrderItems != null || order.OrderItems.Count != 0)
             {
                 foreach (var i in order.OrderItems)
-                    sb.Append($"{currentCategory.Products.First(p => p.Id == i.ProductId).Name} ({i.Count} шт.) \n");
+                {
+                    sb.Append($"{products.First(p => p.Id == i.ProductId).Name} ({i.Count} шт.) \n");
+                    price += i.Count * products.First(p => p.Id == i.ProductId).Price;
+                }
+                sb.Append($"Total price: {price}");
             }
 
             var prompt = new Form()
@@ -100,27 +109,36 @@ namespace SellerClient
 
             prompt.ShowDialog();
         }
-
-        private void CategoryChanged()
-        {
-            ProductsLV.Items.Clear();
-            ProductsLV.Columns.Clear();
-            ProductsLV.Columns.Add("Name", "Название");
-            ProductsLV.Columns.Add("Price", "Цена");
-            ProductsLV.Columns.Add("Description", "Описание");
-            ProductsLV.Columns.Add("Count", "Остаток на складе");
-            foreach(var p in currentCategory.Products)
-            {
-                var item = new ListViewItem(new[] { p.Name, p.Price.ToString(), p.Description, p.Count.ToString() });
-                ProductsLV.Items.Add(item);
-            }
-        }
-
         //причина существования этого костыля в том, что я не знаю как уговорить вижуалку подождать, пока сервер запускается
         private void Form1_Click(object sender, EventArgs e)
         {
+            UpdateForm();
+        }
+        #endregion
+
+        #region utils
+        private void UpdateProductList()
+        {
+            ProductsLV.Items.Clear();
+            ProductsLV.Columns.Clear();
+            if (currentCategory != null)
+            {
+                ProductsLV.Columns.Add("Name", "Название");
+                ProductsLV.Columns.Add("Price", "Цена");
+                ProductsLV.Columns.Add("Description", "Описание");
+                ProductsLV.Columns.Add("Count", "Остаток на складе");
+                foreach (var p in currentCategory.Products)
+                {
+                    var item = new ListViewItem(new[] { p.Name, p.Price.ToString(), p.Description, p.Count.ToString() });
+                    ProductsLV.Items.Add(item);
+                }
+            }
+        }
+        private void UpdateForm()
+        {
             CategoriesPanel.Controls.Clear();
             categories = ApiWrapper.GetCategories();
+            products = ApiWrapper.GetProducts();
             foreach (var c in categories)
             {
                 var btn = new Button { Text = c.Name };
@@ -130,10 +148,11 @@ namespace SellerClient
                 btn.Click += (sender, e) =>
                 {
                     currentCategory = c;
-                    CategoryChanged();
+                    UpdateProductList();
                 };
                 CategoriesPanel.Controls.Add(btn);
             }
         }
+        #endregion
     }
 }

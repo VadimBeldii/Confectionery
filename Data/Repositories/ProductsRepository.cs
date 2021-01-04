@@ -11,34 +11,41 @@ namespace Confectionery.DAL.Repositories
     {
         readonly ConfectioneryDbContext context;
         public ProductsRepository(ConfectioneryDbContext context) => this.context = context;
-        public void DeleteCategory(Category c)
-        {
-            context.Categories.Remove(c);
-        }
-
-        public void DeleteProduct(Product p)
-        {
-            context.Products.Remove(p);
-        }
-
         public async Task<ICollection<Category>> GetCategories()
         {
             return await context.Categories.ToListAsync();
         }
-
-        public Product GetProduct(int id)
+        public void DeleteCategory(Category c)
         {
-            return context.Products.FirstOrDefault(p => p.Id == id);
+            context.Categories.Remove(c);
         }
-
         public async Task<ICollection<Product>> GetProducts()
         {
             return await context.Products.ToListAsync();
         }
-
         public async Task<ICollection<Product>> GetProducts(Category category)
         {
             return await context.Products.Where(p => p.CategoryId == category.Id).ToListAsync();
+        }
+        public Product GetProduct(int id)
+        {
+            return context.Products.FirstOrDefault(p => p.Id == id);
+        }
+        public void UpdateProduct(int id, KeyValuePair<string, object>[] properties)
+        {
+            var product = context.Products.FirstOrDefault(p => p.Id == id);
+
+            if(product != null)
+            {
+                foreach(var property in properties)
+                { 
+                    context.Products.Update(product).Property(property.Key).CurrentValue = property.Value;
+                }
+            }
+        }
+        public void DeleteProduct(Product p)
+        {
+            context.Products.Remove(p);
         }
     }
 }
