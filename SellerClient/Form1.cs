@@ -18,21 +18,23 @@ namespace SellerClient
         private ICollection<CategoryDTO> categories;
         private CategoryDTO currentCategory;
         private ICollection<ProductDTO> products;
-        private OrderDTO order = new OrderDTO { OrderItems = new List<OrderItemDTO>() };
+        private OrderDTO newOrder = new OrderDTO { OrderItems = new List<OrderItemDTO>() };
+
+        private ICollection<OrderDTO> orders;
+        private OrderDTO currentOrder;
 
         #region create order
         private void AddProductBtn_Click(object sender, EventArgs e)
         {
-            var item = order.OrderItems.SingleOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id);
-            
-            uint count;
+            var item = newOrder.OrderItems.SingleOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id);
 
-            if (uint.TryParse(CountTB.Text, out count)
+
+            if (uint.TryParse(CountTB.Text, out uint count)
                 && count <= currentCategory.Products[ProductsLV.SelectedIndices[0]].Count)
             {
                 if (item == default(OrderItemDTO))
-                { 
-                    order.OrderItems.Add(new OrderItemDTO
+                {
+                    newOrder.OrderItems.Add(new OrderItemDTO
                     {
                         Count = (int)count,
                         ProductId = currentCategory.Products[ProductsLV.SelectedIndices[0]].Id
@@ -52,19 +54,21 @@ namespace SellerClient
         }
         private void RemoveProduct_Click(object sender, EventArgs e)
         {
-            order.OrderItems.Remove(
-                order.OrderItems.FirstOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id));
+            newOrder.OrderItems.Remove(
+                newOrder.OrderItems.FirstOrDefault(o => o.ProductId == currentCategory.Products[ProductsLV.SelectedIndices[0]].Id));
         }
         private void SendOrderButton_Click(object sender, EventArgs e)
         {
-            if (order.OrderItems == null || order.OrderItems.Count == 0)
+            if (newOrder.OrderItems == null || newOrder.OrderItems.Count == 0)
             {
                 return;
             }
-            order.Time = DateTime.Now;
-            ApiWrapper.SendOrder(order);
-            order = new OrderDTO();
-            order.OrderItems = new List<OrderItemDTO>();
+            newOrder.Time = DateTime.Now;
+            ApiWrapper.SendOrder(newOrder);
+            newOrder = new OrderDTO
+            {
+                OrderItems = new List<OrderItemDTO>()
+            };
 
             currentCategory = null;
             UpdateForm();
@@ -75,9 +79,9 @@ namespace SellerClient
             var sb = new StringBuilder();
             decimal price = 0;
 
-            if (order.OrderItems != null || order.OrderItems.Count != 0)
+            if (newOrder.OrderItems != null || newOrder.OrderItems.Count != 0)
             {
-                foreach (var i in order.OrderItems)
+                foreach (var i in newOrder.OrderItems)
                 {
                     sb.Append($"{products.First(p => p.Id == i.ProductId).Name} ({i.Count} шт.) \n");
                     price += i.Count * products.First(p => p.Id == i.ProductId).Price;
@@ -109,11 +113,6 @@ namespace SellerClient
 
             prompt.ShowDialog();
         }
-        //причина существования этого костыля в том, что я не знаю как уговорить вижуалку подождать, пока сервер запускается
-        private void Form1_Click(object sender, EventArgs e)
-        {
-            UpdateForm();
-        }
         #endregion
 
         #region utils
@@ -131,6 +130,21 @@ namespace SellerClient
                 {
                     var item = new ListViewItem(new[] { p.Name, p.Price.ToString(), p.Description, p.Count.ToString() });
                     ProductsLV.Items.Add(item);
+                }
+            }
+        }
+        private void UpdateOrderItemsList()
+        {
+            OrderItemsLV.Items.Clear();
+            OrderItemsLV.Columns.Clear();
+            if (currentOrder != null)
+            {
+                OrderItemsLV.Columns.Add("Name", "Название");
+                OrderItemsLV.Columns.Add("Count", "Количество");
+                foreach (var o in currentOrder.OrderItems)
+                {
+                    var item = new ListViewItem(new[] { products.First(p => p.Id == o.ProductId).Name, o.Count.ToString() });
+                    OrderItemsLV.Items.Add(item);
                 }
             }
         }
@@ -152,7 +166,37 @@ namespace SellerClient
                 };
                 CategoriesPanel.Controls.Add(btn);
             }
+
+            OrdersPanel.Controls.Clear();
+            orders = ApiWrapper.GetOrders();
+            foreach (var o in orders)
+            {
+                var btn = new Button { Text = o.Time.ToString() };
+                btn.Width = OrdersPanel.Width;
+                btn.Height = 50;
+                btn.Top = OrdersPanel.Controls.Count * 50;
+                btn.Click += (sender, e) =>
+                {
+                    currentOrder = o;
+                    UpdateOrderItemsList();
+                };
+                OrdersPanel.Controls.Add(btn);
+            }
         }
         #endregion
+
+        #region common
+        private void UpdateFormBtn_Click(object sender, EventArgs e)
+        {
+            UpdateForm();
+        }
+        #endregion
+
+        private void OrderExecutedBtn_Click(object sender, EventArgs e)
+        {
+            ApiWrapper.MarkOrderAsExecuted(currentOrder);
+            UpdateForm();
+            UpdateOrderItemsList();
+        }
     }
 }
