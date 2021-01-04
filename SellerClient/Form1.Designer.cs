@@ -39,8 +39,13 @@ namespace SellerClient
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddOrderTab = new System.Windows.Forms.TabPage();
             this.AcceptOrderTab = new System.Windows.Forms.TabPage();
+            this.OrderItemsLV = new System.Windows.Forms.ListView();
+            this.OrderExecutedBtn = new System.Windows.Forms.Button();
+            this.OrdersPanel = new System.Windows.Forms.Panel();
+            this.UpdateFormBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AddOrderTab.SuspendLayout();
+            this.AcceptOrderTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // CategoriesPanel
@@ -61,7 +66,7 @@ namespace SellerClient
             // 
             // ShowOrderButton
             // 
-            this.ShowOrderButton.Location = new System.Drawing.Point(512, 269);
+            this.ShowOrderButton.Location = new System.Drawing.Point(512, 272);
             this.ShowOrderButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ShowOrderButton.Name = "ShowOrderButton";
             this.ShowOrderButton.Size = new System.Drawing.Size(135, 22);
@@ -72,7 +77,7 @@ namespace SellerClient
             // 
             // SendOrderButton
             // 
-            this.SendOrderButton.Location = new System.Drawing.Point(512, 300);
+            this.SendOrderButton.Location = new System.Drawing.Point(512, 298);
             this.SendOrderButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SendOrderButton.Name = "SendOrderButton";
             this.SendOrderButton.Size = new System.Drawing.Size(135, 22);
@@ -118,10 +123,10 @@ namespace SellerClient
             // 
             this.tabControl1.Controls.Add(this.AddOrderTab);
             this.tabControl1.Controls.Add(this.AcceptOrderTab);
-            this.tabControl1.Location = new System.Drawing.Point(3, 9);
+            this.tabControl1.Location = new System.Drawing.Point(3, 29);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(663, 353);
+            this.tabControl1.Size = new System.Drawing.Size(663, 355);
             this.tabControl1.TabIndex = 9;
             // 
             // AddOrderTab
@@ -136,34 +141,75 @@ namespace SellerClient
             this.AddOrderTab.Location = new System.Drawing.Point(4, 24);
             this.AddOrderTab.Name = "AddOrderTab";
             this.AddOrderTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AddOrderTab.Size = new System.Drawing.Size(655, 325);
+            this.AddOrderTab.Size = new System.Drawing.Size(655, 327);
             this.AddOrderTab.TabIndex = 0;
             this.AddOrderTab.Text = "Создать заказ";
             this.AddOrderTab.UseVisualStyleBackColor = true;
             // 
             // AcceptOrderTab
             // 
+            this.AcceptOrderTab.Controls.Add(this.OrderItemsLV);
+            this.AcceptOrderTab.Controls.Add(this.OrderExecutedBtn);
+            this.AcceptOrderTab.Controls.Add(this.OrdersPanel);
             this.AcceptOrderTab.Location = new System.Drawing.Point(4, 24);
             this.AcceptOrderTab.Name = "AcceptOrderTab";
             this.AcceptOrderTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AcceptOrderTab.Size = new System.Drawing.Size(724, 370);
+            this.AcceptOrderTab.Size = new System.Drawing.Size(655, 327);
             this.AcceptOrderTab.TabIndex = 1;
             this.AcceptOrderTab.Text = "Выполнить заказ";
             this.AcceptOrderTab.UseVisualStyleBackColor = true;
+            // 
+            // OrderItemsLV
+            // 
+            this.OrderItemsLV.HideSelection = false;
+            this.OrderItemsLV.Location = new System.Drawing.Point(220, 4);
+            this.OrderItemsLV.Name = "OrderItemsLV";
+            this.OrderItemsLV.Size = new System.Drawing.Size(419, 288);
+            this.OrderItemsLV.TabIndex = 3;
+            this.OrderItemsLV.UseCompatibleStateImageBehavior = false;
+            this.OrderItemsLV.View = System.Windows.Forms.View.Details;
+            // 
+            // OrderExecutedBtn
+            // 
+            this.OrderExecutedBtn.Location = new System.Drawing.Point(520, 298);
+            this.OrderExecutedBtn.Name = "OrderExecutedBtn";
+            this.OrderExecutedBtn.Size = new System.Drawing.Size(119, 23);
+            this.OrderExecutedBtn.TabIndex = 2;
+            this.OrderExecutedBtn.Text = "Заказ выполнен";
+            this.OrderExecutedBtn.UseVisualStyleBackColor = true;
+            this.OrderExecutedBtn.Click += new System.EventHandler(this.OrderExecutedBtn_Click);
+            // 
+            // OrdersPanel
+            // 
+            this.OrdersPanel.Location = new System.Drawing.Point(5, 3);
+            this.OrdersPanel.Name = "OrdersPanel";
+            this.OrdersPanel.Size = new System.Drawing.Size(208, 318);
+            this.OrdersPanel.TabIndex = 0;
+            // 
+            // UpdateFormBtn
+            // 
+            this.UpdateFormBtn.Location = new System.Drawing.Point(3, 0);
+            this.UpdateFormBtn.Name = "UpdateFormBtn";
+            this.UpdateFormBtn.Size = new System.Drawing.Size(75, 23);
+            this.UpdateFormBtn.TabIndex = 10;
+            this.UpdateFormBtn.Text = "Обновить";
+            this.UpdateFormBtn.UseVisualStyleBackColor = true;
+            this.UpdateFormBtn.Click += new System.EventHandler(this.UpdateFormBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 365);
+            this.ClientSize = new System.Drawing.Size(668, 386);
+            this.Controls.Add(this.UpdateFormBtn);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Confectionery";
-            this.Click += new System.EventHandler(this.Form1_Click);
             this.tabControl1.ResumeLayout(false);
             this.AddOrderTab.ResumeLayout(false);
             this.AddOrderTab.PerformLayout();
+            this.AcceptOrderTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -180,6 +226,10 @@ namespace SellerClient
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage AddOrderTab;
         private System.Windows.Forms.TabPage AcceptOrderTab;
+        private System.Windows.Forms.Button UpdateFormBtn;
+        private System.Windows.Forms.Button OrderExecutedBtn;
+        private System.Windows.Forms.Panel OrdersPanel;
+        private System.Windows.Forms.ListView OrderItemsLV;
     }
 }
 

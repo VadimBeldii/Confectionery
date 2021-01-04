@@ -9,8 +9,8 @@ namespace Confectionery.BLL.Services
 {
     public class OrderService : IOrderService
     {
-        private DAL.IUnitOfWork unitOfWork;
-        private IMapper mapper;
+        private readonly DAL.IUnitOfWork unitOfWork;
+        private readonly IMapper mapper;
         public OrderService(DAL.IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
@@ -67,7 +67,13 @@ namespace Confectionery.BLL.Services
 
         public ICollection<OrderDTO> GetOrders()
         {
-            return mapper.Map<ICollection<OrderDTO>>(unitOfWork.Orders.GetOrders());
+            var result = mapper.Map<ICollection<OrderDTO>>(unitOfWork.Orders.GetOrders().Result);
+            foreach (var o in result)
+            {
+                var items = unitOfWork.Orders.GetItems(mapper.Map<Order>(o)).Result;
+                o.OrderItems = mapper.Map<IList<OrderItemDTO>>(items);
+            }
+            return result;
         }
     }
 }

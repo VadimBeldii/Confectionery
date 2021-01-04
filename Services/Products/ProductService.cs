@@ -7,8 +7,8 @@ namespace Confectionery.BLL.Services
 {
     public class ProductService : IProductService
     {
-        private DAL.IUnitOfWork unitOfWork;
-        private IMapper mapper;
+        private readonly DAL.IUnitOfWork unitOfWork;
+        private readonly IMapper mapper;
 
         public ProductService(DAL.IUnitOfWork unitOfWork, IMapper mapper)
         {

@@ -31,10 +31,22 @@ namespace Confectionery_API.Controllers
             return Ok(JsonSerializer.Serialize(productService.GetProducts()));
         }
 
+        [HttpGet("getorders")]
+        public IActionResult GetOrders()
+        {
+            return Ok(JsonSerializer.Serialize(orderService.GetOrders()));
+        }
+
         [HttpPost("addorder")]
         public IActionResult AddOrder([FromBody]OrderDTO order)
         {
             orderService.AddOrder(order);
+            return Ok();
+        }
+        [HttpPost("executeorder")]
+        public IActionResult ExecuteOrder([FromBody] OrderDTO order)
+        {
+            orderService.Execute(order);
             return Ok();
         }
     }
