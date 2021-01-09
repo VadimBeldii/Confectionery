@@ -4,7 +4,6 @@ using System.Linq;
 
 using Confectionery.DAL.EF;
 using Confectionery.DAL.EF.Entities;
-using System.Threading.Tasks;
 
 namespace Confectionery.DAL.Repositories
 {
@@ -21,23 +20,11 @@ namespace Confectionery.DAL.Repositories
             this.context = context;
         }
 
-        public async Task<ICollection<Order>> GetOrders()
+        public ICollection<Order> GetOrders()
         {
-            return await orders.ToListAsync();
+            return orders.Include(o => o.orderItems).ToList();
         }
-        public ICollection<OrderItem> GetOrderedProducts()
-        {
-            var items = new List<OrderItem>();
-            foreach(var g in orderItems.GroupBy(o=>o.ProductId))
-            {
-                items.Add(new OrderItem
-                {
-                    ProductId = g.Key,
-                    Count = g.Sum(o => o.Count)
-                });
-            }
-            return items;
-        }
+
         public void RemoveOrder(Order order)
         {
             var o = orders.FirstOrDefault(o => o.Id == order.Id);
@@ -47,21 +34,10 @@ namespace Confectionery.DAL.Repositories
             }
         }
 
-        public void AddOrder(Order order, ICollection<OrderItem> items)
+        public void AddOrder(Order order)
         {
             orders.Add(order);
             context.SaveChanges();
-            var orderId = orders.Select(o => o.Id).Max();
-            foreach (var item in items)
-            {
-                item.OrderId = orderId;
-                orderItems.Add(item);
-            }
-        }
-
-        public async Task<ICollection<OrderItem>> GetItems(Order order)
-        {
-            return await orderItems.Where(o => o.OrderId == order.Id).ToListAsync();
         }
     }
 }

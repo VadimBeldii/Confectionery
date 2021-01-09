@@ -18,10 +18,10 @@ namespace Confectionery.BLL.Services
 
         public ICollection<CategoryDTO> GetCategories()
         {
-            var result =  mapper.Map<ICollection<CategoryDTO>>(unitOfWork.Products.GetCategories().Result);
+            var result =  mapper.Map<ICollection<CategoryDTO>>(unitOfWork.Categories.GetCategories());
             foreach (var c in result)
             {
-                var products = unitOfWork.Products.GetProducts(mapper.Map<Category>(c)).Result;
+                var products = unitOfWork.Products.GetProducts(mapper.Map<Category>(c));
                 c.Products = mapper.Map<IList<ProductDTO>>(products);
             }
             return result;
@@ -29,7 +29,7 @@ namespace Confectionery.BLL.Services
 
         public ICollection<ProductDTO> GetProducts()
         {
-            return mapper.Map<ICollection<ProductDTO>>(unitOfWork.Products.GetProducts().Result);
+            return mapper.Map<ICollection<ProductDTO>>(unitOfWork.Products.GetProducts());
         }
     }
 }

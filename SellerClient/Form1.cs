@@ -13,7 +13,10 @@ namespace SellerClient
         public Form1()
         {
             InitializeComponent();
+            apiWrapper = new ApiWrapper();
         }
+
+        private readonly IApiWrapper apiWrapper;
 
         private ICollection<CategoryDTO> categories;
         private CategoryDTO currentCategory;
@@ -64,7 +67,7 @@ namespace SellerClient
                 return;
             }
             newOrder.Time = DateTime.Now;
-            ApiWrapper.SendOrder(newOrder);
+            apiWrapper.SendOrder(newOrder);
             newOrder = new OrderDTO
             {
                 OrderItems = new List<OrderItemDTO>()
@@ -151,8 +154,8 @@ namespace SellerClient
         private void UpdateForm()
         {
             CategoriesPanel.Controls.Clear();
-            categories = ApiWrapper.GetCategories();
-            products = ApiWrapper.GetProducts();
+            categories = apiWrapper.GetCategories();
+            products = apiWrapper.GetProducts();
             foreach (var c in categories)
             {
                 var btn = new Button { Text = c.Name };
@@ -168,7 +171,7 @@ namespace SellerClient
             }
 
             OrdersPanel.Controls.Clear();
-            orders = ApiWrapper.GetOrders();
+            orders = apiWrapper.GetOrders();
             foreach (var o in orders)
             {
                 var btn = new Button { Text = o.Time.ToString() };
@@ -194,8 +197,9 @@ namespace SellerClient
 
         private void OrderExecutedBtn_Click(object sender, EventArgs e)
         {
-            ApiWrapper.MarkOrderAsExecuted(currentOrder);
+            apiWrapper.MarkOrderAsExecuted(currentOrder);
             UpdateForm();
+            currentOrder = null;
             UpdateOrderItemsList();
         }
     }

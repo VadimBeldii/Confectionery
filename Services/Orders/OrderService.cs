@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using Confectionery.BLL.DTOs;
-using System;
 using System.Collections.Generic;
-using System.Text;
+
+using Confectionery.BLL.DTOs;
 using Confectionery.DAL.EF.Entities;
 
 namespace Confectionery.BLL.Services
 {
-    public class OrderService : IOrderService
+    public class OrderService: IOrderService
     {
         private readonly DAL.IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
@@ -49,7 +48,7 @@ namespace Confectionery.BLL.Services
                 var product = unitOfWork.Products.GetProduct(item.ProductId);
                 unitOfWork.Products.UpdateProduct(item.ProductId, new[] { KeyValuePair.Create<string, object>("Count", product.Count - item.Count) });
             }
-            unitOfWork.Orders.AddOrder(mapper.Map<Order>(order), mapper.Map<ICollection<OrderItem>>(order.OrderItems));
+            unitOfWork.Orders.AddOrder(mapper.Map<Order>(order));
             unitOfWork.Save();
             return true;
         }
@@ -60,19 +59,9 @@ namespace Confectionery.BLL.Services
             unitOfWork.Save();
         }
 
-        public ICollection<OrderItemDTO> GetOrderedProducts()
-        {
-            return mapper.Map<ICollection<OrderItemDTO>>(unitOfWork.Orders.GetOrderedProducts());
-        }
-
         public ICollection<OrderDTO> GetOrders()
         {
-            var result = mapper.Map<ICollection<OrderDTO>>(unitOfWork.Orders.GetOrders().Result);
-            foreach (var o in result)
-            {
-                var items = unitOfWork.Orders.GetItems(mapper.Map<Order>(o)).Result;
-                o.OrderItems = mapper.Map<IList<OrderItemDTO>>(items);
-            }
+            var result = mapper.Map<ICollection<OrderDTO>>(unitOfWork.Orders.GetOrders());
             return result;
         }
     }

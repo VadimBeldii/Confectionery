@@ -44,7 +44,7 @@ namespace Confectionery_API.Controllers
             return Ok();
         }
         [HttpPost("executeorder")]
-        public IActionResult ExecuteOrder([FromBody] OrderDTO order)
+        public IActionResult ExecuteOrder([FromBody]OrderDTO order)
         {
             orderService.Execute(order);
             return Ok();

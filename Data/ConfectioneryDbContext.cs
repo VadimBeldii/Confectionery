@@ -25,8 +25,9 @@ namespace Confectionery.DAL.EF
                 .Property(s => s.Id).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Entities.Order>()
-                .HasMany(typeof(Entities.OrderItem))
+                .HasMany(o => o.orderItems)
                 .WithOne()
+                .HasForeignKey(o => o.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

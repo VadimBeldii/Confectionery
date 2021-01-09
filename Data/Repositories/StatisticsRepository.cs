@@ -11,9 +11,9 @@ namespace Confectionery.DAL.Repositories
     {
         readonly ConfectioneryDbContext context;
         public StatisticsRepository(ConfectioneryDbContext context) => this.context = context;
-        public async Task<ICollection<Statistics>> GetStatistics()
+        public ICollection<Statistics> GetStatistics()
         {
-            return await context.Statistics.ToListAsync();
+            return context.Statistics.ToList();
         }
 
         public void Add(Statistics statistics)

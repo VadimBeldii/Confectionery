@@ -6,6 +6,7 @@ namespace Confectionery.DAL
     public interface IUnitOfWork
     {
         IOrderRepository Orders { get; }
+        ICategoryRepository Categories { get; }
         IProductsRepository Products { get; }
         IStatisticsRepository Statistics { get; }
 

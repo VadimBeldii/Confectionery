@@ -1,9 +1,8 @@
 ﻿using Confectionery.DAL.EF;
 using Confectionery.DAL.EF.Entities;
-using Microsoft.EntityFrameworkCore;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Confectionery.DAL.Repositories
 {
@@ -11,21 +10,14 @@ namespace Confectionery.DAL.Repositories
     {
         readonly ConfectioneryDbContext context;
         public ProductsRepository(ConfectioneryDbContext context) => this.context = context;
-        public async Task<ICollection<Category>> GetCategories()
+
+        public ICollection<Product> GetProducts()
         {
-            return await context.Categories.ToListAsync();
+            return context.Products.ToList();
         }
-        public void DeleteCategory(Category c)
+        public ICollection<Product> GetProducts(Category category)
         {
-            context.Categories.Remove(c);
-        }
-        public async Task<ICollection<Product>> GetProducts()
-        {
-            return await context.Products.ToListAsync();
-        }
-        public async Task<ICollection<Product>> GetProducts(Category category)
-        {
-            return await context.Products.Where(p => p.CategoryId == category.Id).ToListAsync();
+            return context.Products.Where(p => p.CategoryId == category.Id).ToList();
         }
         public Product GetProduct(int id)
         {
